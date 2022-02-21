@@ -1,4 +1,4 @@
-use rand::thread_rng;
+//use rand::thread_rng;
 
 use curve25519_dalek::ristretto::{CompressedRistretto, RistrettoPoint};
 use curve25519_dalek::scalar::Scalar;
@@ -6,6 +6,8 @@ use curve25519_dalek::traits::MultiscalarMul;
 
 use crate::toolbox::{SchnorrCS, TranscriptProtocol};
 use crate::{BatchableProof, CompactProof, Transcript};
+
+use rand_core::OsRng;
 
 /// Used to create proofs.
 ///
@@ -79,7 +81,7 @@ impl<'a> Prover<'a> {
         for scalar in &self.scalars {
             rng_builder = rng_builder.rekey_with_witness_bytes(b"", scalar.as_bytes());
         }
-        let mut transcript_rng = rng_builder.finalize(&mut thread_rng());
+        let mut transcript_rng = OsRng;
 
         // Generate a blinding factor for each secret variable
         let blindings = self
