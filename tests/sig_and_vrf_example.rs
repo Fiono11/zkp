@@ -10,7 +10,8 @@
 // - Henry de Valence <hdevalence@hdevalence.ca>
 
 extern crate rand;
-use rand::{thread_rng, CryptoRng, RngCore};
+use rand_core::{CryptoRng, RngCore};
+use rand::thread_rng;
 
 extern crate curve25519_dalek;
 use curve25519_dalek::constants as dalek_constants;

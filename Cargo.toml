@@ -23,7 +23,7 @@ features = ["nightly"]
 
 [dependencies]
 merlin = "2"
-rand = "0.7"
+rand = "0.8.5"
 serde = "1"
 serde_derive = "1"
 thiserror = "1"
@@ -33,7 +33,7 @@ rand_core = "0.6.3"
 
 [dev-dependencies]
 bincode = "1"
-sha2 = "0.9"
+sha2 = "0.10.2"
 
 [features]
 nightly = ["curve25519-dalek/nightly"]
